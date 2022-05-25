@@ -1,0 +1,190 @@
+*{
+  padding:0; margin:0;
+}
+body{
+  background-color: #2B2828;
+  margin: 0 auto;
+}
+:root {
+  /* Colors */
+  --black: rgba(0, 0, 0, 1);
+  --dark-slate-gray: rgba(43, 40, 40, 1);
+  --green-yellow: rgba(212, 225, 65, 1);
+  --transparent-black-2: rgba(0, 0, 0, 0.72);
+  --white: rgba(255, 255, 255, 1);
+  --yellow: rgba(250, 255, 0, 1);
+
+  /* Typographies */
+  /* jost-36-semi-bold */
+  --jost-36-semi-bold-family: "Jost";
+  --jost-36-semi-bold-size: 36px;
+  --jost-36-semi-bold-weight: 600;
+  --jost-36-semi-bold-line-height: normal;
+
+  /* jost-48-semi-bold */
+  --jost-48-semi-bold-family: "Jost";
+  --jost-48-semi-bold-size: 48px;
+  --jost-48-semi-bold-weight: 600;
+  --jost-48-semi-bold-line-height: normal;
+}
+
+.main-page {
+  background-color: var(--dark-slate-gray);
+  padding: 0 0 0 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.header {
+  background: linear-gradient(
+    90deg,
+    var(--transparent-black-2) -0%,
+    var(--transparent-black-2) 100%
+  );
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 154px;
+  width: 100%;
+}
+.button-active {
+  background-color: var(--black);
+  margin-right: 10px;
+  padding: 8px 38px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid var(--yellow);
+  cursor: pointer;
+}
+.button-text {
+  color: rgba(255, 245, 245, 1);
+  text-align: center;
+  font-family: var(--jost-48-semi-bold-family);
+  font-size: var(--jost-48-semi-bold-size);
+  font-weight: var(--jost-48-semi-bold-weight);
+  line-height: var(--jost-48-semi-bold-line-height);
+}
+.button {
+  background-color: var(--black);
+  margin-right: 10px;
+  padding: 11px 76px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.54);
+  cursor: pointer;
+}
+.button-two {
+  background-color: var(--black);
+  padding: 11px 60px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.54);
+  cursor: pointer;
+}
+.main-page-section {
+  padding: 105px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 1348px;
+  width: 100%;
+}
+.cinema-image {
+  width: 1200px;
+  height: 707px;
+  margin-bottom: 19px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--black);
+}
+.address {
+  color: var(--green-yellow);
+  text-align: center;
+  margin-bottom: 19px;
+  font-family: var(--jost-36-semi-bold-family);
+  font-size: var(--jost-36-semi-bold-size);
+  font-weight: var(--jost-36-semi-bold-weight);
+  line-height: var(--jost-36-semi-bold-line-height);
+}
+.cinema-desciption {
+  height: 389px;
+  width: 1413px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: var(--jost-36-semi-bold-family);
+  font-size: var(--jost-36-semi-bold-size);
+  font-weight: var(--jost-36-semi-bold-weight);
+  line-height: var(--jost-36-semi-bold-line-height);
+}
+
+.about-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.info:not(:last-of-type) {
+  margin-bottom: 101px;
+}
+.adres-prosp-mira-109vyhod-k-zvezdnomu {
+  max-width: 802px;
+  color: var(--white);
+  margin-bottom: 20px;
+  font-family: var(--jost-36-semi-bold-family);
+  font-size: var(--jost-36-semi-bold-size);
+  font-weight: var(--jost-36-semi-bold-weight);
+  line-height: var(--jost-36-semi-bold-line-height);
+}
+.kontakty-kassa-7-495-687-46-69-www-mo {
+  max-width: 409px;
+  color: var(--white);
+  margin-bottom: 20px;
+  font-family: var(--jost-36-semi-bold-family);
+  font-size: var(--jost-36-semi-bold-size);
+  font-weight: var(--jost-36-semi-bold-weight);
+  line-height: var(--jost-36-semi-bold-line-height);
+}
+.cinemanight-mos-kino-ru-www-mos-kino-ru {
+  max-width: 531px;
+  color: var(--white);
+  font-family: var(--jost-36-semi-bold-family);
+  font-size: var(--jost-36-semi-bold-size);
+  font-weight: var(--jost-36-semi-bold-weight);
+  line-height: var(--jost-36-semi-bold-line-height);
+}
+.title-block {
+  background-color: rgba(196, 196, 196, 1);
+  padding: 6px 69px 0 77px;
+  display: flex;
+  align-items: flex-start;
+}
+.title {
+  height: 64px;
+  width: 488px;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: var(--jost-48-semi-bold-family);
+  font-size: var(--jost-48-semi-bold-size);
+  font-weight: var(--jost-48-semi-bold-weight);
+  line-height: var(--jost-48-semi-bold-line-height);
+}
+.shedule-image {
+  width: 634px;
+  height: 471px;
+}
