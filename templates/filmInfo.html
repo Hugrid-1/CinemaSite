@@ -1,48 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div class="main-page-about">
-  <div class="header">
-    <button class="button">
-      <p class="button-text">Кинотеатр</p></button
-    ><button class="button-two">
-      <p class="button-text">Афиша</p></button
-    ><button class="button-active">
-      <p class="button-text">Справка</p>
-    </button>
-  </div>
-  <div class="about-block">
-    <div class="info">
-      <p class="adres-prosp-mira-109vyhod-k-zvezdnomu">
-        Адрес<br />
-        просп. Мира, 109Выход к звездному бульвару
-      </p>
-      <p class="kontakty-kassa-7-495-687-46-69-www-mo">
-        Контакты<br />
-        КАССА<br />
-        &#43;7 (495) 687-46-69<br />
-        www.mos-kino.ru
-      </p>
-      <p class="cinemanight-mos-kino-ru-www-mos-kino-ru">
-        cinemanight.mos-kino.ru/<br />
-        www.mos-kino.ru/cinema_9.html
-      </p>
+<!doctype html>
+<html lang="ru">
+  <head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Кинотеатр</title>
+  </head>
+  <body style="background-color: black">
+    <nav class="navbar navbar-dark bg-dark">
+      <ul class="nav justify-content-center">
+                <li class="nav-item ml-5 rounded fw-bold">
+                  <a class="nav-link text-dark bg-white" aria-current="page" href="{{url_for('mainPage')}}">Главная</a>
+                </li>
+                <li class="nav-item ml-5 rounded">
+                  <a class="nav-link text-dark bg-white" href="{{url_for('filmListPage')}}">Афиша</a>
+                </li>
+                <li class="nav-item ml-5 rounded fw-bold">
+                  <a class="nav-link text-dark bg-white" aria-current="{{url_for('aboutPage')}}" href="{{url_for('aboutPage')}}">Справка</a>
+                </li>
+              </ul>
+    </nav>
+    <br>
+
+    <br>
+    <div class="row ">
+              <div class="col mb-4  text-white">
+                 <div style="margin-left: 40px">
+                        <div class="col-md-6">
+                            <div class="profile-head">
+                                        <h2>
+                                            {{filmData.title}}
+                                        </h2>
+                                        <h5>
+                                            Страна: {{filmData.country}}
+                                        </h5>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active text-white" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <img src="../static/images/{{filmData.image}}" href="filmInfo/{{filmData.id}}" class=" img-thumbnail bg-dark" alt="...">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label></label>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Длительность</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{filmData.duration.strftime("%H:%M")}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Жанр</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{ filmData.name }}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Описание фильма</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{filmData.description }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <a class="btn btn-success" href="{{url_for('filmSessions',filmID=filmData.id)}}">ПРОСМОТРЕТЬ СЕАНСЫ</a>
+                                                </div>
+                                            </div>
+                                    </div>
+              </div>
     </div>
-    <div class="info">
-      <div class="title-block">
-        <p class="title">ГРАФИК РАБОТЫ</p>
-      </div>
-      <img
-        alt=""
-        class="shedule-image"
-        src="https://static.overlay-tech.com/assets/87dd13fa-d0e1-410b-9996-db2cdadacc7c.png"
-      />
-    </div>
-  </div>
-</div>
-</body>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+  </body>
 </html>
