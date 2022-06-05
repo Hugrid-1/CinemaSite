@@ -12,9 +12,10 @@ import os #Загрузка библиотеки для работы с файл
 #Загрузка библиотеки Flask и расширений этой бибилотеки
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user, UserMixin
-from flask import Flask,render_template, request, flash, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory, send_file
 #Загрузка библиотек для защиты файлов
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash, safe_join
+
 UPLOAD_FOLDER = 'static\\files'
 db_string = "postgresql://postgres:123@localhost/CinemaSite" #адрес подключения к БД
 dbEngine = create_engine(db_string) #создание класса базы данных
@@ -175,12 +176,21 @@ def buyTicket(placeID):
 
 @app.route('/uploads/<name>') #загрузка файла на сервер
 def download_file(name):
-    print(send_from_directory(app.config["UPLOAD_FOLDER"], name)) #вывод информации о файле в консоль
-    return send_from_directory(app.config["UPLOAD_FOLDER"], name)
+    print(app.config["UPLOAD_FOLDER"])
+    print(name)
+    print(os.getcwd())
+    print(os.path.join(os.getcwd(),name))
+    print(os.path.exists(os.path.join(os.getcwd(), name)))
+    print(os.path.exists(f'static/files/{name}'))
+    print(safe_join('static/files', name))
+    print(os.path.exists(safe_join('static/files', name)))
+    # print(send_from_directory(app.config["UPLOAD_FOLDER"], name)) #вывод информации о файле в консоль
+    return send_file(safe_join('static/files', name),as_attachment=True)
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ =="__main__":
+    app.run(host=os.getenv('IP', '0.0.0.0'),
+            port=int(os.getenv('PORT', 4444)),debug=True)
 
 
 
