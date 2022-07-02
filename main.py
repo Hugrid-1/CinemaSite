@@ -1,3 +1,4 @@
+
 #Загрузка библиотек для работы с базой данных
 import re
 import secrets
@@ -176,14 +177,6 @@ def buyTicket(placeID):
 
 @app.route('/uploads/<name>') #загрузка файла на сервер
 def download_file(name):
-    print(app.config["UPLOAD_FOLDER"])
-    print(name)
-    print(os.getcwd())
-    print(os.path.join(os.getcwd(),name))
-    print(os.path.exists(os.path.join(os.getcwd(), name)))
-    print(os.path.exists(f'static/files/{name}'))
-    print(safe_join('static/files', name))
-    print(os.path.exists(safe_join('static/files', name)))
     # print(send_from_directory(app.config["UPLOAD_FOLDER"], name)) #вывод информации о файле в консоль
     return send_file(safe_join('static/files', name),as_attachment=True)
 
